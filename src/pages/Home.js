@@ -12,7 +12,7 @@ function Home() {
     useEffect(() => {
         const map = new mapboxgl.Map({
             container: mapContainer.current,
-            style: 'mapbox://styles/mapbox/streets-v11',
+            style: 'mapbox://styles/mako4kamiya/cko9xdnpd0nlq18qbpf0c787x',
             center: [lng, lat],
             zoom: zoom
         });
