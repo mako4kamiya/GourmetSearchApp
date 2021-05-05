@@ -24,6 +24,7 @@ function Map() {
 
     useEffect(() => {
         console.log(lng);
+        console.log(lat);
         const map = new mapboxgl.Map({
             container: mapContainer.current,
             style: style,
