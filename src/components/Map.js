@@ -6,27 +6,15 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
 mapboxgl.accessToken = 'pk.eyJ1IjoibWFrbzRrYW1peWEiLCJhIjoiY2tvOXRiMGl5MmtydjJwcXc4cXN6cTNmbiJ9.25AHY8Eey5RTzOXyIvVC3A';
 
-function Map() {
+function Map(props) {
     const mapContainer = useRef();
     const style = "mapbox://styles/mako4kamiya/cko9xdnpd0nlq18qbpf0c787x";
-    const [lng, setLng] = useState('');
-    const [lat, setLat] = useState('');
-
-    let getPotision = new Promise(function(resolve, reject){
-        navigator.geolocation.getCurrentPosition(resolve, reject);
-    })
-    getPotision
-    .then(res => {
-        setLng(res.coords.longitude);
-        setLat(res.coords.latitude);
-    })
-    .catch(err => {
-        console.warn(`ERROR(${err.code}): ${err.message}`);
-    });
+    const [lng, setLng] = useState(props.lng);
+    const [lat, setLat] = useState(props.lat);
 
     useEffect(() => {
-        console.log(lng);
-        console.log(lat);
+        setLng(props.lng);
+        setLat(props.lat);
         const map = new mapboxgl.Map({
             container: mapContainer.current,
             style: style,
@@ -34,7 +22,7 @@ function Map() {
             zoom: "13"
         });
         return () => map.remove();
-    }, [lng, lat]);
+    }, [lng, lat, props]);
 
     return (
         <div className="map-container" ref={mapContainer}></div>
