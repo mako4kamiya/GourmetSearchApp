@@ -7,8 +7,10 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFrbzRrYW1peWEiLCJhIjoiY2tvOXRiMGl5MmtydjJwc
 function Map() {
     const mapContainer = useRef();
     const style = "mapbox://styles/mako4kamiya/cko9xdnpd0nlq18qbpf0c787x";
-    const [lng, setLng] = useState('');
-    const [lat, setLat] = useState('');
+    // const [lng, setLng] = useState('');
+    // const [lat, setLat] = useState('');
+    const lng = 127.80064329999998;
+    const lat = 26.3390386;
 
     // let getPotision = new Promise(function(resolve, reject){
     //     navigator.geolocation.getCurrentPosition(resolve, reject);
@@ -27,8 +29,8 @@ function Map() {
         const map = new mapboxgl.Map({
             container: mapContainer.current,
             style: style,
-            // center: [lng, lat],
-            center: [127.80064329999998, 26.3390386],
+            center: [lng, lat],
+            // center: [127.80064329999998, 26.3390386],
             zoom: "13"
         });
         return () => map.remove();
