@@ -10,19 +10,20 @@ function Map() {
     const [lng, setLng] = useState('');
     const [lat, setLat] = useState('');
 
-    useEffect(() => {
-        let getPotision = new Promise(function(resolve, reject){
-            navigator.geolocation.getCurrentPosition(resolve, reject);
-        })
-        getPotision
-        .then(res => {
-            setLng(res.coords.longitude);
-            setLat(res.coords.latitude);
-        })
-        .catch(err => {
-            console.warn(`ERROR(${err.code}): ${err.message}`);
-        });
 
+    let getPotision = new Promise(function(resolve, reject){
+        navigator.geolocation.getCurrentPosition(resolve, reject);
+    })
+    getPotision
+    .then(res => {
+        setLng(res.coords.longitude);
+        setLat(res.coords.latitude);
+    })
+    .catch(err => {
+        console.warn(`ERROR(${err.code}): ${err.message}`);
+    });
+
+    useEffect(() => {
         const map = new mapboxgl.Map({
             container: mapContainer.current,
             style: style,
