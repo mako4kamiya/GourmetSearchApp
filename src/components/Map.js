@@ -9,13 +9,14 @@ function Map() {
     const style = "mapbox://styles/mako4kamiya/cko9xdnpd0nlq18qbpf0c787x";
     const [lng, setLng] = useState('');
     const [lat, setLat] = useState('');
-
+    console.log(lng);
 
     let getPotision = new Promise(function(resolve, reject){
         navigator.geolocation.getCurrentPosition(resolve, reject);
     })
     getPotision
     .then(res => {
+        console.log(res);
         setLng(res.coords.longitude);
         setLat(res.coords.latitude);
     })
