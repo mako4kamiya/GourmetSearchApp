@@ -1,6 +1,14 @@
 import { useEffect, useState } from "react";
+import Header from "../components/Header";
 import Map from "../components/Map";
+import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
+import FilterNoneIcon from '@material-ui/icons/FilterNone';
 import "../css/home.css";
+
+const headerTitle = "周辺の検索";
+const headerLeft = <FormatListBulletedIcon/>;
+const headerLeftPath = "/list";
+const headerRight = <FilterNoneIcon />;
 
 function Home() {
     const [lng, setLng] = useState(null);
@@ -17,6 +25,12 @@ function Home() {
 
     return (
         <div id="Home">
+            <Header
+                headerTitle={headerTitle}
+                headerLeft= {headerLeft}
+                headerLeftPath={headerLeftPath}
+                headerRight={headerRight}
+            />
             <Map lng={lng} lat={lat}/>
         </div>
     );

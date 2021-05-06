@@ -1,10 +1,5 @@
 import { Link } from "react-router-dom";
-
 import { AppBar, Toolbar, Typography, IconButton } from "@material-ui/core";
-
-import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
-import FilterNoneIcon from '@material-ui/icons/FilterNone';
-
 import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles({
     AppBar: {
@@ -22,15 +17,15 @@ function Header(props) {
         <header>
             <AppBar className={classes.AppBar}>
                 <Toolbar className={classes.Toolbar}>
-                    <Link to="/list">
+                    <Link to={props.headerLeftPath}>
                         <IconButton edge="start">
-                            <FormatListBulletedIcon/>
+                            {props.headerLeft}
                         </ IconButton>
                     </Link>
-                    <Typography>周辺の検索</Typography>
+                    <Typography>{props.headerTitle}</Typography>
                     <Link to="/filter">
                         <IconButton edge="end">
-                            <FilterNoneIcon />
+                            {props.headerRight}
                         </ IconButton>
                     </Link>
                 </Toolbar>

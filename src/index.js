@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import ReactDOM from "react-dom";
 import { Switch, Route } from "react-router-dom";
-import Header from "./components/Header";
 import List from "./pages/List";
 import Filter from "./pages/Filter";
 import Home from "./pages/Home";
@@ -14,8 +13,6 @@ document.getElementById('root').style.height=vh+'px';
 
 ReactDOM.render(
   <BrowserRouter>
-    <Header />
-
     <Switch>
       <Route path="/list">
           <List />
@@ -27,7 +24,6 @@ ReactDOM.render(
           <Home />
       </Route>
     </Switch>
-
   </BrowserRouter>,
   document.getElementById('root')
 );
