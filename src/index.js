@@ -1,5 +1,7 @@
 import React from "react";
+import { BrowserRouter } from "react-router-dom";
 import ReactDOM from "react-dom";
+import Header from "./components/Header";
 import Home from "./pages/Home";
 import "./css/reset.css";
 
@@ -8,8 +10,9 @@ console.log(vh);
 document.getElementById('root').style.height=vh+'px';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <BrowserRouter>
+    <Header />
     <Home />
-  </React.StrictMode>,
+  </BrowserRouter>,
   document.getElementById('root')
 );
