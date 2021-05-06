@@ -1,7 +1,7 @@
 import { useRef, useEffect, useState } from "react";
-import "../css/home.css";
 import mapboxgl from "mapbox-gl/dist/mapbox-gl";
 import 'mapbox-gl/dist/mapbox-gl.css'
+import "../css/map.css"
 // eslint-disable-next-line import/no-webpack-loader-syntax
 mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
 mapboxgl.accessToken = 'pk.eyJ1IjoibWFrbzRrYW1peWEiLCJhIjoiY2tvOXRiMGl5MmtydjJwcXc4cXN6cTNmbiJ9.25AHY8Eey5RTzOXyIvVC3A';
@@ -25,7 +25,7 @@ function Map(props) {
     }, [lng, lat, props]);
 
     return (
-        <div className="map-container" ref={mapContainer}></div>
+        <div id="Map" ref={mapContainer}></div>
     );
 }
 export default Map;

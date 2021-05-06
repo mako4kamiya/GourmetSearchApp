@@ -1,0 +1,117 @@
+@charset "utf-8";
+
+/*
+   http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+
+   HTML5版のリセットCSSで有名な《html5doctor》です。
+*/
+
+/*要素のフォントサイズやマージン・パディングをリセットしています*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/*行の高さをフォントサイズと同じにしています*/
+body {
+    line-height:1;
+}
+
+ /* HTML5 display-role reset for older browsers */
+ /* HTML5から追加された下記の要素はすべてインライン要素になっているのでブロックレベル要素へ変更*/
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+/*ol、ulのマーカー（行頭記号）を表示しないようにしています*/
+ol, ul {
+    list-style:none;
+}
+
+/*blockquote、q要素は、他の情報源からの引用部分であると明示します。引用符の表示が出ないように指定*/
+blockquote, q {
+    quotes:none;
+}
+ 
+/*blockquote要素、q要素の前後にコンテンツを追加しないように指定*/
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*a要素のフォントサイズなどをリセットしフォントの縦方向の揃え位置を親要素のベースラインに揃えるように指定*/
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+ 
+/* ins要素のデフォルトをセットし、色を変える場合はここで変更できるように指定 */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+ 
+/* mark要素のデフォルトをセットし、色やフォントスタイルを変える場合はここで変更できるよう指定
+また、mark要素とは、文書内の検索結果で該当するフレーズをハイライトして、目立たせる際に使用する*/
+mark {
+    background-color:#ff9;
+    color:#000;
+    font-style:italic;
+    font-weight:bold;
+}
+ 
+/*テキストに打ち消し線が付くよう指定*/
+del {
+    text-decoration: line-through;
+}
+ 
+/*IEではデフォルトで点線を下線表示する設定ではないので、下線がつくように指定
+また、マウスオーバー時にヘルプカーソルを表示するよう指定*/
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+ 
+
+ 
+/*水平罫線のデフォルトである立体的な罫線を非表示するよう指定*/
+hr {
+    display:block;
+    height:1px;
+    border:0;  
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+ 
+/*縦方向の揃え位置を中央揃えに指定*/
+input, select {
+    vertical-align:middle;
+}
