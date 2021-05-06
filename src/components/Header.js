@@ -1,8 +1,5 @@
-import Home from "../pages/Home";
-import List from "../pages/List";
-import Filter from "../pages/Filter";
+import { Link } from "react-router-dom";
 
-import { Switch, Route, Link } from "react-router-dom";
 import { AppBar, Toolbar, Typography, IconButton } from "@material-ui/core";
 
 import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
@@ -38,18 +35,6 @@ function Header(props) {
                     </Link>
                 </Toolbar>
             </AppBar>
-
-            {/* <Switch>
-                <Route path="/list">
-                    <List />
-                </Route>
-                <Route path="/filter">
-                    <Filter />
-                </Route>
-                <Route path="/">
-                    <Home />
-                </Route>
-            </Switch> */}
         </header>
     );
 }
