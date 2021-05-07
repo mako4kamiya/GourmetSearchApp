@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Map from "../components/Map";
+import Shop from "../components/Shop";
 import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
 import FilterNoneIcon from '@material-ui/icons/FilterNone';
 import "../css/home.css";
@@ -31,7 +32,8 @@ function Home() {
                 headerLeftPath={headerLeftPath}
                 headerRight={headerRight}
             />
-            <Map lng={lng} lat={lat}/>
+            {/* <Map lng={lng} lat={lat}/> */}
+            <Shop />
         </div>
     );
 }
