@@ -21,7 +21,7 @@ ReactDOM.render(
           <Filter />
       </Route>
       <Route path="/">
-          <Home rootVh={rootVh}/>
+          <Home/>
       </Route>
     </Switch>
   </BrowserRouter>,

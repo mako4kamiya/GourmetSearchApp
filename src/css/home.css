@@ -1,4 +1,9 @@
 #Home {
   height: 100%;
 }
-/*# sourceMappingURL=home.css.map */
+
+#Shop {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+}

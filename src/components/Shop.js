@@ -1,12 +1,9 @@
-import { useState } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import SwipeableViews from 'react-swipeable-views';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
 const shops = [
@@ -38,54 +35,42 @@ const shops = [
 ];
 
 const useStyles = makeStyles({
-  root: {
+  card: {
     maxWidth: 345,
   },
-  SwipeDiv: {
-    // width: "90% !important",
+  cardMedia: {
+    potision: "static",
   },
 });
 
-function Shop(props) {
-  const rootVh =props.rootVh
+function Shop() {
   const classes = useStyles();
-  const [activeStep, setActiveStep] = useState(0);
-
-  const handleStepChange = (shop) => {
-    setActiveStep(shop);
-  };
 
   return (
-    <div id="shop">
-      <div className="card">
-        <SwipeableViews index={activeStep} onChangeIndex={handleStepChange} style slideClassName={classes.SwipeDiv}>
-          {shops.map((shop, index) => (
-            <div key={shop.label}>
-              {/* {Math.abs(activeStep - index) <= 2 ? (
-                <img src={shop.imgPath} alt={shop.label} />
-              ) : null} */}
-              <Card className={classes.root}>
-                <CardActionArea>
-                  <CardMedia
-                    component="img"
-                    height="140"
-                    image={shop.imgPath}
-                    title="Contemplative Reptile"
-                  />
-                  <CardContent>
-                    <Typography>{shop.label}</Typography>
-                    <Typography variant="body2" color="textSecondary" component="p">
-                    {shop.label}
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
-              </Card>
-            </div>
-          ))}
-        </SwipeableViews>
-      </div>
+    <div id="Shop">
+      <SwipeableViews>
+        {shops.map((shop) => (
+          <div key={shop.label}>
+            <Card className={classes.card}>
+              <CardActionArea>
+                <CardMedia
+                  component="img"
+                  image={shop.imgPath}
+                  title="Contemplative Reptile"
+                  className={classes.cardMedia}
+                />
+                <CardContent>
+                  <Typography>{shop.label}</Typography>
+                  <Typography variant="body2" color="textSecondary" component="p">
+                  {shop.label}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </div>
+        ))}
+      </SwipeableViews>
     </div>
   );
 }
-
 export default Shop;
