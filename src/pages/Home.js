@@ -33,7 +33,7 @@ function Home() {
                 headerRight={headerRight}
             />
             <Map lng={lng} lat={lat}/>
-            <Shop/>
+            <Shop lng={lng} lat={lat}/>
         </div>
     );
 }

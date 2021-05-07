@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
 import { makeStyles } from '@material-ui/core/styles';
 import SwipeableViews from 'react-swipeable-views';
 import Card from '@material-ui/core/Card';
@@ -43,7 +45,18 @@ const useStyles = makeStyles({
   },
 });
 
-function Shop() {
+function Shop(props) {
+  const [lng, setLng] = useState(props.lng);
+  const [lat, setLat] = useState(props.lat);
+
+  useEffect(() => {
+    axios.get(`/gourmet/v1/?key=4c8ae073fc977810&lat=${props.lat}&lng=${props.lng}&format=json`)
+    .then((res)=>{
+      console.log(res);
+      });
+  }, [lng, lat, props]);
+
+
   const classes = useStyles();
 
   return (
