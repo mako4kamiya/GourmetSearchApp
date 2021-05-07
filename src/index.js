@@ -7,9 +7,9 @@ import Filter from "./pages/Filter";
 import Home from "./pages/Home";
 import "./css/reset.css";
 
-const vh=window.innerHeight;
-console.log(vh);
-document.getElementById('root').style.height=vh+'px';
+const rootVh=window.innerHeight;
+console.log(rootVh);
+document.getElementById('root').style.height=rootVh+'px';
 
 ReactDOM.render(
   <BrowserRouter>
@@ -21,7 +21,7 @@ ReactDOM.render(
           <Filter />
       </Route>
       <Route path="/">
-          <Home />
+          <Home rootVh={rootVh}/>
       </Route>
     </Switch>
   </BrowserRouter>,

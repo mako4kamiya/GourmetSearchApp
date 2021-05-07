@@ -11,7 +11,8 @@ const headerLeft = <FormatListBulletedIcon/>;
 const headerLeftPath = "/list";
 const headerRight = <FilterNoneIcon />;
 
-function Home() {
+function Home(props) {
+    const rootVh = props.rootVh
     const [lng, setLng] = useState(null);
     const [lat, setLat] = useState(null);
     const [position, setPosition] = useState(false);
@@ -33,7 +34,7 @@ function Home() {
                 headerRight={headerRight}
             />
             {/* <Map lng={lng} lat={lat}/> */}
-            <Shop />
+            <Shop rootVh={rootVh}/>
         </div>
     );
 }
