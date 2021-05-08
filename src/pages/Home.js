@@ -17,6 +17,10 @@ function Home() {
     const [lat, setLat] = useState(null);
     const [shops, setShops] = useState([]);
 
+    const shopComponents = (shops || []).map(shop =>(
+        <Shop shops={shops}/>
+    ));
+
     useEffect(() => {
         navigator.geolocation.getCurrentPosition((res) => {
             setLng(res.coords.longitude);
@@ -42,7 +46,7 @@ function Home() {
                 headerRight={headerRight}
             />
             <Map lng={lng} lat={lat}/>
-            {/* <Shop shops={shops}/> */}
+            {shopComponents}
         </div>
     );
 }
