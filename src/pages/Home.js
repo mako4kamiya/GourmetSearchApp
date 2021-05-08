@@ -62,7 +62,7 @@ function Home() {
     },[]);
 
     useEffect(()=>{
-        axios.get(`/gourmet/v1/?key=4c8ae073fc977810&lat=${lat}&lng=${lng}&type=credit_card&format=json`)
+        axios.get(`https://cors-for-gourmet-search-app.herokuapp.com/http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=4c8ae073fc977810&lat=${lat}&lng=${lng}&type=credit_card&format=json`)
             .then((res)=>{
             console.log(res);
             setShops(res.data.results.shop);
