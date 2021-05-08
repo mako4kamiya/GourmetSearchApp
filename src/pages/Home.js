@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 import Header from "../components/Header";
 import Map from "../components/Map";
 import Shop from "../components/Shop";
@@ -14,15 +15,23 @@ const headerRight = <FilterNoneIcon />;
 function Home() {
     const [lng, setLng] = useState(null);
     const [lat, setLat] = useState(null);
-    const [position, setPosition] = useState(false);
+    const [shops, setShops] = useState([]);
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition((res) => {
             setLng(res.coords.longitude);
             setLat(res.coords.latitude);
-            setPosition(true); //なぜかこれがないと綺麗に描画されない。
         });
-    },[position]);
+    },[]);
+
+    useEffect(()=>{
+        axios.get(`/gourmet/v1/?key=4c8ae073fc977810&lat=${lat}&lng=${lng}&type=credit_card&format=json`)
+            .then((res)=>{
+            console.log(res);
+            setShops(res.data.results.shop);
+        });
+    },[lng, lat]);
+    console.log(shops);
 
     return (
         <div id="Home">
@@ -33,7 +42,7 @@ function Home() {
                 headerRight={headerRight}
             />
             <Map lng={lng} lat={lat}/>
-            <Shop lng={lng} lat={lat}/>
+            {/* <Shop shops={shops}/> */}
         </div>
     );
 }
