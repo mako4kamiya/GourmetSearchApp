@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import Header from "../components/Header";
 import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
 import FilterNoneIcon from '@material-ui/icons/FilterNone';
@@ -7,9 +6,9 @@ import Map from "../components/Map";
 import Shop from "../components/Shop";
 import "../css/home.css";
 
-function Home() {
-    const [lng, setLng] = useState(null);
-    const [lat, setLat] = useState(null);
+function Home(props) {
+    const [lng, setLng] = useState("");
+    const [lat, setLat] = useState("");
     const [shops, setShops] = useState([]);
 
     const headerTitle = "周辺の検索";
@@ -17,21 +16,14 @@ function Home() {
     const headerLeftPath = "/list";
     const headerRight = <FilterNoneIcon />;
 
-    useEffect(() => {
-        navigator.geolocation.getCurrentPosition((res) => {
-            setLng(res.coords.longitude);
-            setLat(res.coords.latitude);
-        });
-    },[]);
+    useEffect(()=>{
+        setLng(props.lng);
+        setLat(props.lat);
+    },);
 
     useEffect(()=>{
-        axios.get(`https://cors-for-gourmet-search-app.herokuapp.com/http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=4c8ae073fc977810&lat=${lat}&lng=${lng}&type=credit_card&format=json`)
-            .then((res)=>{
-            console.log(res);
-            setShops(res.data.results.shop);
-        });
-    },[lng, lat]);
-    console.log(shops);
+        setShops(props.shops);
+    },);
 
     return (
         <div id="Home">

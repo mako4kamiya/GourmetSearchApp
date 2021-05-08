@@ -10,6 +10,7 @@ import "../css/shop.css";
 
 function Shop(props) {
   const [shops, setShops] = useState([]);
+
   const shopComponents = (shops || []).map(shop =>(
     <div className="card" key={shop.id}>
         <Card>
@@ -43,7 +44,7 @@ function Shop(props) {
   console.log(shops);
 
   return (
-    <div id="Shop">
+    <div id="Shop" className="shopHome shopList">
       <SwipeableViews className="swipe">
         {shopComponents}
       </SwipeableViews>

@@ -6,3 +6,15 @@
 #Home {
   height: 100%;
 }
+
+#Shop.shopHome {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+#Shop.shopHome .swipe {
+  padding: 0 30px;
+  margin-bottom: 10px;
+}

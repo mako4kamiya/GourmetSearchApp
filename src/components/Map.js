@@ -9,12 +9,15 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFrbzRrYW1peWEiLCJhIjoiY2tvOXRiMGl5MmtydjJwc
 function Map(props) {
     const mapContainer = useRef();
     const style = "mapbox://styles/mako4kamiya/cko9xdnpd0nlq18qbpf0c787x";
-    const [lng, setLng] = useState(props.lng);
-    const [lat, setLat] = useState(props.lat);
+    const [lng, setLng] = useState("");
+    const [lat, setLat] = useState("");
 
-    useEffect(() => {
+    useEffect(()=>{
         setLng(props.lng);
         setLat(props.lat);
+    },[props]);
+
+    useEffect(() => {
         const map = new mapboxgl.Map({
             container: mapContainer.current,
             style: style,
@@ -22,7 +25,7 @@ function Map(props) {
             zoom: "13"
         });
         return () => map.remove();
-    }, [lng, lat, props]);
+    }, [lng, lat]);
 
     return (
         <div id="Map" ref={mapContainer}></div>

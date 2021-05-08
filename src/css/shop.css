@@ -1,37 +1,25 @@
-#Shop {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  left: 0;
-}
-
-#Shop .swipe {
-  padding: 0 30px;
-  margin-bottom: 10px;
-}
-
-#Shop .swipe .card {
+#Shop .card {
   padding: 0 10px;
 }
 
-#Shop .swipe .card .MuiPaper-root {
+#Shop .card .MuiPaper-root {
   background-color: rgba(255, 255, 255, 0.8);
 }
 
-#Shop .swipe .card .MuiCardActionArea-root {
+#Shop .card .MuiCardActionArea-root {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-#Shop .swipe .card .MuiCardActionArea-root .MuiCardMedia-root {
+#Shop .card .MuiCardActionArea-root .MuiCardMedia-root {
   width: 30%;
   height: 140px;
   margin: 10px;
   border-radius: 5px;
 }
 
-#Shop .swipe .card .MuiCardActionArea-root .MuiCardContent-root {
+#Shop .card .MuiCardActionArea-root .MuiCardContent-root {
   width: 50%;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
@@ -39,13 +27,13 @@
   padding: 0 5px;
 }
 
-#Shop .swipe .card .MuiCardActionArea-root .MuiCardContent-root h2 {
+#Shop .card .MuiCardActionArea-root .MuiCardContent-root h2 {
   font-size: 16px;
   line-height: 1.2;
   letter-spacing: -0.008em;
 }
 
-#Shop .swipe .card .MuiCardActionArea-root .MuiCardContent-root span.open {
+#Shop .card .MuiCardActionArea-root .MuiCardContent-root span.open {
   width: 100%;
   font-size: 10px;
   color: rgba(0, 0, 0, 0.54);
@@ -56,7 +44,7 @@
   text-overflow: ellipsis;
 }
 
-#Shop .swipe .card .MuiCardActionArea-root .MuiCardContent-root p {
+#Shop .card .MuiCardActionArea-root .MuiCardContent-root p {
   font-size: 10px;
   letter-spacing: -0.1em;
   white-space: nowrap;
@@ -64,12 +52,12 @@
   text-overflow: ellipsis;
 }
 
-#Shop .swipe .card .MuiCardActionArea-root .MuiCardContent-root .chips .chip {
+#Shop .card .MuiCardActionArea-root .MuiCardContent-root .chips .chip {
   font-size: 10px;
   margin: 1px;
 }
 
-#Shop .swipe .card .MuiCardActionArea-root .MuiCardContent-root .chips .chip svg {
+#Shop .card .MuiCardActionArea-root .MuiCardContent-root .chips .chip svg {
   width: 10px;
   height: 10px;
 }

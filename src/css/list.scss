@@ -1,0 +1,15 @@
+#List {
+    .shopList {
+        top: 10%;
+        bottom: 10% !important;
+        overflow-y: scroll;
+        .swipe {
+            .react-swipeable-view-container {
+                display: block !important;
+                .card {
+                    padding: 10px;
+                }
+            }
+        }
+    }
+}
