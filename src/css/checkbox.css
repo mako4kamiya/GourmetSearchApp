@@ -1,10 +1,12 @@
 #FilterForm {
-  margin: 0 20px;
-  position: fixed;
-  top: 80px;
+  margin: 80px 20px;
 }
 
-#FilterForm .MuiFormGroup-root {
+#FilterForm .MuiFormControl-root {
+  width: 100%;
+}
+
+#FilterForm .MuiFormControl-root .MuiFormGroup-root {
   margin: 30px 0;
   overflow-x: auto;
   -ms-flex-wrap: nowrap;
@@ -15,7 +17,7 @@
           flex-direction: row;
 }
 
-#FilterForm .MuiFormGroup-root .MuiFormControlLabel-root {
+#FilterForm .MuiFormControl-root .MuiFormGroup-root .MuiFormControlLabel-root {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;

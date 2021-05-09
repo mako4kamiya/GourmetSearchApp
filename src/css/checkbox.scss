@@ -1,14 +1,15 @@
 #FilterForm {
-    margin: 0 20px;
-    position: fixed;
-    top: 80px;
-    .MuiFormGroup-root {
-        margin: 30px 0;
-        overflow-x: auto;
-        flex-wrap: nowrap;
-        flex-direction: row;
-        .MuiFormControlLabel-root {
-            flex: 0 0 auto;
+    margin: 80px 20px;
+    .MuiFormControl-root {
+        width: 100%;
+        .MuiFormGroup-root {
+            margin: 30px 0;
+            overflow-x: auto;
+            flex-wrap: nowrap;
+            flex-direction: row;
+            .MuiFormControlLabel-root {
+                flex: 0 0 auto;
+            }
         }
     }
 }

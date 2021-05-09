@@ -15,7 +15,6 @@ function Filter() {
                 headerLeftPath={headerLeftPath}
                 headerRight={headerRight}
             />
-            <h2>List</h2>
             <FilterForm />
         </div>
     );
