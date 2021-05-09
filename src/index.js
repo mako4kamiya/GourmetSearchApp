@@ -5,7 +5,6 @@ import App from "./components/App";
 import "./css/reset.css";
 
 const rootVh=window.innerHeight;
-console.log(rootVh);
 document.getElementById('root').style.height=rootVh+'px';
 
 ReactDOM.render(

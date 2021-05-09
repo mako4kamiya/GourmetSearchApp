@@ -16,7 +16,6 @@ const [shops, setShops] = useState([]);
     useEffect(()=>{
         setShops(props.shops);
     },[props.shops]);
-    console.log(shops);
 
     return (
         <div id="List">

@@ -32,7 +32,7 @@ function App() {
                 <List shops={shops}/>
             </Route>
             <Route path="/filter">
-                <Filter />
+                <Filter shops={shops}/>
             </Route>
             <Route path="/">
                 <Home lng={lng} lat={lat} shops={shops}/>

@@ -41,7 +41,7 @@ function Shop(props) {
   useEffect(()=>{
     setShops(props.shops);
   },[props.shops]);
-  console.log(shops);
+  // console.log(shops);
 
   return (
     <div id="Shop" className="shopHome shopList">
