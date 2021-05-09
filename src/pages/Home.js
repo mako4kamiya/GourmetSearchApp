@@ -19,11 +19,11 @@ function Home(props) {
     useEffect(()=>{
         setLng(props.lng);
         setLat(props.lat);
-    },);
+    },[props.lng, props.lat]);
 
     useEffect(()=>{
         setShops(props.shops);
-    },);
+    },[props.shops]);
 
     return (
         <div id="Home">

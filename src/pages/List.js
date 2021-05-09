@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import RoomIcon from '@material-ui/icons/Room';
 import FilterNoneIcon from '@material-ui/icons/FilterNone';
 import Shop from "../components/Shop";
-import css from "../css/list.css";
+import "../css/list.css";
 
 const headerTitle = "周辺の検索";
 const headerLeft = <RoomIcon/>;
@@ -15,7 +15,7 @@ const [shops, setShops] = useState([]);
 
     useEffect(()=>{
         setShops(props.shops);
-    },);
+    },[props.shops]);
     console.log(shops);
 
     return (

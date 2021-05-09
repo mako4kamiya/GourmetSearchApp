@@ -40,7 +40,7 @@ function Shop(props) {
 
   useEffect(()=>{
     setShops(props.shops);
-  },);
+  },[props.shops]);
   console.log(shops);
 
   return (

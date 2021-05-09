@@ -1,4 +1,5 @@
 import Header from "../components/Header";
+import FilterForm from "../components/FilterForm";
 
 const headerTitle = "絞り込み検索";
 const headerLeft = "キャンセル";
@@ -15,6 +16,7 @@ function Filter() {
                 headerRight={headerRight}
             />
             <h2>List</h2>
+            <FilterForm />
         </div>
     );
 }
