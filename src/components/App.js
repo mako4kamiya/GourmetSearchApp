@@ -5,6 +5,8 @@ import List from "../pages/List";
 import Filter from "../pages/Filter";
 import Home from "../pages/Home";
 
+const KEY = process.env.REACT_APP_HOTPEPPER_API_KEY
+
 function App() {
     const [lng, setLng] = useState("");
     const [lat, setLat] = useState("");
@@ -18,7 +20,7 @@ function App() {
     },[]);
 
     useEffect(()=>{
-        axios.get(`https://cors-for-gourmet-search-app.herokuapp.com/http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=4c8ae073fc977810&lat=${lat}&lng=${lng}&type=credit_card&format=json`)
+        axios.get(`https://cors-for-gourmet-search-app.herokuapp.com/http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=${KEY}&lat=${lat}&lng=${lng}&type=credit_card&format=json`)
             .then((res)=>{
             setShops(res.data.results.shop);
         });
