@@ -15,7 +15,7 @@ function Filter(props) {
                 headerLeftPath={headerLeftPath}
                 headerRight={headerRight}
             />
-            <FilterForm createQuery={props.createQuery}/>
+            <FilterForm setOption={props.setOption}/>
         </div>
     );
 }

@@ -9,7 +9,7 @@ import "../css/filter.css";
 
 function FilterForm(props) {
     const [options, setOptions] = useState({
-        c01: false,
+        c01: true,
         c02: false,
         c04: false,
         c06: false,
@@ -28,11 +28,45 @@ function FilterForm(props) {
         lunch: false,
         english: false,
         pet: false
-    });    
+    });
+    console.log(options);
+
+    const {
+        c01,
+        c02,
+        c04,
+        c06,
+        c07,
+        c11,
+        c12,
+        child,
+        card,
+        parking,
+        wifi,
+        private_room,
+        horigotatsu,
+        tatami,
+        non_smoking,
+        barrier_free,
+        lunch,
+        english,
+        pet
+    } = options ;
 
     const optionHandleChange = (event) => {
         setOptions({ ...options, [event.target.name]: event.target.checked });
     };
+
+    function createQuery(options) {
+        let newQuery = "";
+        Object.entries(options).forEach(([key, value]) => {
+            if (value) {
+                newQuery += `&${key}=${value}`;
+            }
+        })
+        console.log(newQuery);
+        props.setOption(newQuery);
+    }
 
     return (
         <div id="FilterForm">
@@ -43,7 +77,7 @@ function FilterForm(props) {
                     <FormControlLabel
                         control={
                             <CheckboxIcon
-                                checked={false}
+                                checked={c01}
                                 onChange={optionHandleChange}
                                 name="c01"
                             />}
@@ -52,7 +86,7 @@ function FilterForm(props) {
                     <FormControlLabel
                         control={
                             <CheckboxIcon
-                                checked={false}
+                                checked={c02}
                                 onChange={optionHandleChange}
                                 name="c02"
                             />}
@@ -61,7 +95,7 @@ function FilterForm(props) {
                     <FormControlLabel
                         control={
                             <CheckboxIcon
-                                checked={false}
+                                checked={c04}
                                 onChange={optionHandleChange}
                                 name="c04"
                             />}
@@ -70,7 +104,7 @@ function FilterForm(props) {
                     <FormControlLabel
                         control={
                             <CheckboxIcon
-                                checked={false}
+                                checked={c06}
                                 onChange={optionHandleChange}
                                 name="c06"
                             />}
@@ -79,7 +113,7 @@ function FilterForm(props) {
                     <FormControlLabel
                         control={
                             <CheckboxIcon
-                                checked={false}
+                                checked={c07}
                                 onChange={optionHandleChange}
                                 name="c07"
                             />}
@@ -88,7 +122,7 @@ function FilterForm(props) {
                     <FormControlLabel
                         control={
                             <CheckboxIcon
-                                checked={false}
+                                checked={c12}
                                 onChange={optionHandleChange}
                                 name="c12"
                             />}
@@ -97,7 +131,7 @@ function FilterForm(props) {
                     <FormControlLabel
                         control={
                             <CheckboxIcon
-                                checked={false}
+                                checked={c12}
                                 onChange={optionHandleChange}
                                 name="c12"
                             />}
@@ -112,7 +146,7 @@ function FilterForm(props) {
                     <FormControlLabel
                         control={
                             <CheckboxIcon
-                                checked={false}
+                                checked={child}
                                 onChange={optionHandleChange}
                                 name="child"
                             />}
@@ -121,7 +155,7 @@ function FilterForm(props) {
                     <FormControlLabel
                         control={
                             <CheckboxIcon
-                                checked={false}
+                                checked={card}
                                 onChange={optionHandleChange}
                                 name="card"
                             />}
@@ -130,7 +164,7 @@ function FilterForm(props) {
                     <FormControlLabel
                         control={
                             <CheckboxIcon
-                                checked={false}
+                                checked={parking}
                                 onChange={optionHandleChange}
                                 name="parking"
                             />}
@@ -139,16 +173,16 @@ function FilterForm(props) {
                     <FormControlLabel
                         control={
                             <CheckboxIcon
-                                checked={false}
+                                checked={child}
                                 onChange={optionHandleChange}
-                                name="wifi"
+                                name="child"
                             />}
                         label="Wifiあり"
                     />
                     <FormControlLabel
                         control={
                             <CheckboxIcon
-                                checked={false}
+                                checked={private_room}
                                 onChange={optionHandleChange}
                                 name="private_room"
                             />}
@@ -156,7 +190,7 @@ function FilterForm(props) {
                     />
                 </FormGroup>
             </FormControl>
-            <Button variant="contained" color="primary" onClick={() => { props.createQuery(options) }}>
+            <Button variant="contained" color="primary" onClick={() => { createQuery(options) }}>
                 適応する
             </Button>
             {/* <Button variant="contained" color="primary">

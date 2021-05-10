@@ -14,10 +14,10 @@ function App() {
     const [lat, setLat] = useState("");
     const [baseUrl, setBaseUrl]  = useState("");
     const [query, setQuery] = useState(false);
-    const [option, setOption] = useState("");
+    const [options, setOption] = useState("");
     const [shops, setShops] = useState([]);
 
-    function getLocation(option) {
+    function getLocation() {
         return new Promise(function(resolve, reject, option) {
             navigator.geolocation.getCurrentPosition(resolve, reject, option);
         });
@@ -31,15 +31,16 @@ function App() {
             setLng(lng);
             setLat(lat);
             setBaseUrl(baseUrl);
-            setQuery(baseUrl);
         } catch(err) {
             console.log(err);
         }
     }
-    async function getShopInfo(query,option) {
+    async function getShopInfo(query,options) {
         try {
-            let res = await axios.get(query + option);
+            let res = await axios.get(query + options);
+            console.log(query + options);
             setShops(res.data.results.shop);
+            console.log(shops);
         } catch(err) {
             console.log(err);
         }
@@ -51,9 +52,11 @@ function App() {
 
     useEffect(()=>{
         if (query) {
-            getShopInfo(query, option);
+            getShopInfo(query, options);
+        } else {
+            getShopInfo(baseUrl, options);
         }
-    },[query, option])
+    },[query, baseUrl, options])
 
     return (
         <Switch>
