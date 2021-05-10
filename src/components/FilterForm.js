@@ -4,18 +4,17 @@ import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import CheckboxIcon from '@material-ui/core/Checkbox';
-import "../css/checkbox.css";
+import "../css/filter.css";
 
-function FilterForm() {
-    const [checkedLists, setcheCkedLists] = useState("");
+function FilterForm(props) {
     const [options, setOptions] = useState({
-        VISA: true,
-        マスター: false,
-        アメックス: false,
-        DINERS: false,
-        JCB: false,
-        銀聯: false,
-        Discover: false,
+        c01: true,
+        c02: false,
+        c04: false,
+        c06: false,
+        c07: false,
+        c11: false,
+        c12: false,
         child: true,
         card: false,
         parking: false,
@@ -28,43 +27,12 @@ function FilterForm() {
         lunch: false,
         english: false,
         pet: false
-    });
-    const {
-        VISA,
-        マスター,
-        アメックス,
-        DINERS,
-        JCB,
-        銀聯,
-        Discover,
-        child,
-        card,
-        parking,
-        wifi,
-        private_room,
-        horigotatsu,
-        tatami,
-        non_smoking,
-        barrier_free,
-        lunch,
-        english,
-        pet
-    } = options;
-    
-
+    });    
     console.log(options);
 
     const optionHandleChange = (event) => {
         setOptions({ ...options, [event.target.name]: event.target.checked });
     };
-
-    // useEffect(()=>{
-    //     options.forEach(option => {
-    //         if(option == true){
-    //             setcheCkedLists([ ...checkedLists, {option: option} ]);
-    //         }
-    //     }
-    // },[options]);
 
     return (
         <div id="FilterForm">
@@ -75,70 +43,63 @@ function FilterForm() {
                     <FormControlLabel
                         control={
                             <CheckboxIcon
-                                checked={VISA}
+                                checked={false}
                                 onChange={optionHandleChange}
-                                name="VISA"
-                                value="c01"
+                                name="c01"
                             />}
                         label="VISA"
                     />
                     <FormControlLabel
                         control={
                             <CheckboxIcon
-                                checked={マスター}
+                                checked={false}
                                 onChange={optionHandleChange}
-                                name="マスター"
-                                value="c02"
+                                name="c02"
                             />}
                         label="マスター"
                     />
                     <FormControlLabel
                         control={
                             <CheckboxIcon
-                                checked={アメックス}
+                                checked={false}
                                 onChange={optionHandleChange}
-                                name="アメックス"
-                                value="c04"
+                                name="c04"
                             />}
                         label="アメックス"
                     />
                     <FormControlLabel
                         control={
                             <CheckboxIcon
-                                checked={DINERS}
+                                checked={false}
                                 onChange={optionHandleChange}
-                                name="DINERS"
-                                value="c06"
+                                name="c06"
                             />}
                         label="DINERS"
                     />
                     <FormControlLabel
                         control={
                             <CheckboxIcon
-                                checked={JCB}
+                                checked={false}
                                 onChange={optionHandleChange}
-                                name="JCB"
-                                value="c07"
+                                name="c07"
                             />}
                         label="JCB"
                     />
                     <FormControlLabel
                         control={
                             <CheckboxIcon
-                                checked={銀聯}
+                                checked={false}
                                 onChange={optionHandleChange}
-                                name="銀聯"
-                                value="c12"
+                                name="c12"
                             />}
                         label="銀聯"
                     />
                     <FormControlLabel
                         control={
                             <CheckboxIcon
-                                checked={Discover}
+                                checked={false}
                                 onChange={optionHandleChange}
-                                name="Discover"
-                                value="c12"
+                                name="c12"
                             />}
                         label="Discover"
                     />
@@ -151,7 +112,7 @@ function FilterForm() {
                     <FormControlLabel
                         control={
                             <CheckboxIcon
-                                checked={child}
+                                checked={false}
                                 onChange={optionHandleChange}
                                 name="child"
                             />}
@@ -160,7 +121,7 @@ function FilterForm() {
                     <FormControlLabel
                         control={
                             <CheckboxIcon
-                                checked={card}
+                                checked={false}
                                 onChange={optionHandleChange}
                                 name="card"
                             />}
@@ -169,7 +130,7 @@ function FilterForm() {
                     <FormControlLabel
                         control={
                             <CheckboxIcon
-                                checked={parking}
+                                checked={false}
                                 onChange={optionHandleChange}
                                 name="parking"
                             />}
@@ -178,7 +139,7 @@ function FilterForm() {
                     <FormControlLabel
                         control={
                             <CheckboxIcon
-                                checked={wifi}
+                                checked={false}
                                 onChange={optionHandleChange}
                                 name="wifi"
                             />}
@@ -187,7 +148,7 @@ function FilterForm() {
                     <FormControlLabel
                         control={
                             <CheckboxIcon
-                                checked={private_room}
+                                checked={false}
                                 onChange={optionHandleChange}
                                 name="private_room"
                             />}

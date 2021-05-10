@@ -47,8 +47,8 @@ function App() {
                 setShops(res.data.results.shop);
             });
         }
-        const obj = {'a': 1, 'b': 2, 'c': 3};
-        createQuery(obj);
+        // const obj = {'a': 1, 'b': 2, 'c': 3};
+        // createQuery(obj);
     },[query]);
 
     return (

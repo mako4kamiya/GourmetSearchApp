@@ -1,3 +1,7 @@
+header .headerSpan {
+  font-size: 12px;
+}
+
 #FilterForm {
   margin: 80px 20px;
 }
@@ -22,3 +26,4 @@
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
 }
+/*# sourceMappingURL=filter.css.map */

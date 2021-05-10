@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AACI,KADC,CACD,SAAS,CAAC;EACN,GAAG,EAAE,GAAG;EACR,MAAM,EAAE,cAAc;EACtB,UAAU,EAAE,MAAM;CASrB;;AAbL,AAMY,KANP,CACD,SAAS,CAIL,MAAM,CACF,+BAA+B,CAAC;EAC5B,OAAO,EAAE,gBAAgB;CAI5B;;AAXb,AAQgB,KARX,CACD,SAAS,CAIL,MAAM,CACF,+BAA+B,CAE3B,KAAK,CAAC;EACF,OAAO,EAAE,IAAI;CAChB",
+    "sources": [
+        "list.scss"
+    ],
+    "names": [],
+    "file": "list.css"
+}
