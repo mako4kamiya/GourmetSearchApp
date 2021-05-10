@@ -16,8 +16,14 @@ function App() {
     const [location, setLocation] = useState(false);
     // console.log(lng, lat, query);
 
-    function createQuery() {
-        console.log(baseUrl);
+    function createQuery(obj) {
+        let newUrl = baseUrl;
+        for (const [key, value] of Object.entries(obj)) {
+            console.log(key, value);
+            const options = `&${key}=${value}`;
+            newUrl += options;
+        }
+        console.log(newUrl);
     }
 
     useEffect(() => {
@@ -41,6 +47,8 @@ function App() {
                 setShops(res.data.results.shop);
             });
         }
+        const obj = {'a': 1, 'b': 2, 'c': 3};
+        createQuery(obj);
     },[query]);
 
     return (
@@ -49,7 +57,7 @@ function App() {
                 <List shops={shops}/>
             </Route>
             <Route path="/filter">
-                <Filter shops={shops}/>
+                <Filter shops={shops} createQuery={createQuery}/>
             </Route>
             <Route path="/">
                 <Home lng={lng} lat={lat} shops={shops}/>
