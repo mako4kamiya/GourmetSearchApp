@@ -11,20 +11,37 @@ function App() {
     const [lng, setLng] = useState("");
     const [lat, setLat] = useState("");
     const [shops, setShops] = useState([]);
+    const [baseUrl, setBaseUrl]  = useState("");
+    const [query, setQuery] = useState("");
+    const [location, setLocation] = useState(false);
+    // console.log(lng, lat, query);
+
+    function createQuery() {
+        console.log(baseUrl);
+    }
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition((res) => {
             setLng(res.coords.longitude);
             setLat(res.coords.latitude);
+            setLocation(true);
         });
     },[]);
 
     useEffect(()=>{
-        axios.get(`https://cors-for-gourmet-search-app.herokuapp.com/http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=${KEY}&lat=${lat}&lng=${lng}&type=credit_card&format=json`)
-            .then((res)=>{
-            setShops(res.data.results.shop);
-        });
+        setBaseUrl(`https://cors-for-gourmet-search-app.herokuapp.com/http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=${KEY}&lat=${lat}&lng=${lng}&format=json&type=credit_card&range=5`);
+        setQuery(`https://cors-for-gourmet-search-app.herokuapp.com/http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=${KEY}&lat=${lat}&lng=${lng}&format=json&type=credit_card&range=5`);
     },[lng, lat]);
+
+    useEffect(()=>{
+        if(location){
+            axios.get(`${query}`)
+                .then((res)=>{
+                // console.log(res);
+                setShops(res.data.results.shop);
+            });
+        }
+    },[query]);
 
     return (
         <Switch>
