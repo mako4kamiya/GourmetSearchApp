@@ -3,10 +3,10 @@ import FilterForm from "../components/FilterForm";
 
 const headerTitle = "絞り込み検索";
 const headerLeft = <span className="headerSpan">キャンセル</span>;
-const headerLeftPath = "/home"
+const headerLeftPath = "/"
 const headerRight = <span className="headerSpan">適応</span>;
 
-function Filter() {
+function Filter(props) {
     return (
         <div id="List">
             <Header
@@ -15,7 +15,7 @@ function Filter() {
                 headerLeftPath={headerLeftPath}
                 headerRight={headerRight}
             />
-            <FilterForm />
+            <FilterForm createQuery={props.createQuery}/>
         </div>
     );
 }

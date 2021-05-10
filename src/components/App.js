@@ -19,11 +19,11 @@ function App() {
     function createQuery(obj) {
         let newUrl = baseUrl;
         for (const [key, value] of Object.entries(obj)) {
-            console.log(key, value);
             const options = `&${key}=${value}`;
             newUrl += options;
         }
-        console.log(newUrl);
+        setQuery(newUrl);
+        console.log(query);
     }
 
     useEffect(() => {

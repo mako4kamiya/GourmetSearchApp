@@ -4,18 +4,19 @@ import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import CheckboxIcon from '@material-ui/core/Checkbox';
+import Button from '@material-ui/core/Button';
 import "../css/filter.css";
 
 function FilterForm(props) {
     const [options, setOptions] = useState({
-        c01: true,
+        c01: false,
         c02: false,
         c04: false,
         c06: false,
         c07: false,
         c11: false,
         c12: false,
-        child: true,
+        child: false,
         card: false,
         parking: false,
         wifi: false,
@@ -28,7 +29,6 @@ function FilterForm(props) {
         english: false,
         pet: false
     });    
-    console.log(options);
 
     const optionHandleChange = (event) => {
         setOptions({ ...options, [event.target.name]: event.target.checked });
@@ -156,6 +156,12 @@ function FilterForm(props) {
                     />
                 </FormGroup>
             </FormControl>
+            <Button variant="contained" color="primary" onClick={() => { props.createQuery(options) }}>
+                適応する
+            </Button>
+            {/* <Button variant="contained" color="primary">
+                適応する
+            </Button> */}
         </div>
     );
 }
