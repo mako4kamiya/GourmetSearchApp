@@ -45,7 +45,7 @@ function Shop(props) {
 
   return (
     <div id="Shop" className="shopHome shopList">
-      <SwipeableViews className="swipe">
+      <SwipeableViews className="swipe" enableMouseEvents={true}>
         {shopComponents}
       </SwipeableViews>
     </div>
