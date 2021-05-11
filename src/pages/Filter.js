@@ -2,9 +2,8 @@ import Header from "../components/Header";
 import FilterForm from "../components/FilterForm";
 
 const headerTitle = "絞り込み検索";
-const headerLeft = <span className="headerSpan">キャンセル</span>;
+const headerLeft = <span className="headerSpan">戻る</span>;
 const headerLeftPath = "/"
-const headerRight = <span className="headerSpan">適応</span>;
 
 function Filter(props) {
     return (
@@ -13,7 +12,6 @@ function Filter(props) {
                 headerTitle={headerTitle}
                 headerLeft= {headerLeft}
                 headerLeftPath={headerLeftPath}
-                headerRight={headerRight}
             />
             <FilterForm setOption={props.setOption}/>
         </div>

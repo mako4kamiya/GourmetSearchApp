@@ -6,8 +6,8 @@ import Filter from "./pages/Filter";
 import Home from "./pages/Home";
 
 const KEY = process.env.REACT_APP_HOTPEPPER_API_KEY
-const REQUEST_URL = `https://cors-for-gourmet-search-app.herokuapp.com/http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=${KEY}&format=json&type=credit_card&range=5`
-// const REQUEST_URL = `https://cors-for-gourmet-search-app.herokuapp.com/http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=${KEY}&format=json&type=credit_card`
+// const REQUEST_URL = `https://cors-for-gourmet-search-app.herokuapp.com/http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=${KEY}&format=json&type=credit_card&range=5`
+const REQUEST_URL = `https://cors-for-gourmet-search-app.herokuapp.com/http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=${KEY}&format=json&type=credit_card`
 
 function App() {
     const [lng, setLng] = useState("");
@@ -43,11 +43,11 @@ function App() {
             console.log(err);
         }
     }
-
+    
     useEffect(() => {
         createBaseState();
     },[]);
-
+    
     useEffect(()=>{
         if (options) {
             getShopInfo(baseUrl + options);
