@@ -5,6 +5,9 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import CheckboxIcon from '@material-ui/core/Checkbox';
 import Button from '@material-ui/core/Button';
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
+
 import "../css/filter.css";
 const optionData = {
     c01: false,
@@ -24,21 +27,36 @@ const optionData = {
     barrier_free: false,
     lunch: false,
     english: false,
-    pet: false
+    pet: false,
+    range:""
 };
 
 
 function FilterForm(props) {
     const [options, setOptions] = useState(null);
+    const [open, setOpen] = useState(false);
     console.log(options);
     const {c01, c02, c04, c06, c07, c11, c12,
             child, card, parking, wifi, private_room,
-            tatami, non_smoking, barrier_free, lunch, english, pet } = "" ;
+            tatami, non_smoking, barrier_free, lunch, english, pet, range } = "" ;
 
-    const optionHandleChange = (event) => {
-        setOptions({ ...options, [event.target.name]: event.target.checked });
+    const handleChange = (event) => {
+        console.log(event)
+        if(event.target.name == "range"){
+            setOptions({ ...options, [event.target.name]: event.target.value });
+        }else {
+            setOptions({ ...options, [event.target.name]: event.target.checked });
+        }
     };
 
+    const handleClose = () => {
+        setOpen(false);
+      };
+
+      const handleOpen = () => {
+        setOpen(true);
+      };
+    
     function createQuery(options) {
         let newQuery = "";
         Object.entries(options).forEach(([key, value]) => {
@@ -59,7 +77,6 @@ function FilterForm(props) {
 
     return (
         <div id="FilterForm">
-            <hr/>
             <FormControl>
                 <FormLabel>お支払い方法</FormLabel>
                 <FormGroup>
@@ -67,7 +84,7 @@ function FilterForm(props) {
                         control={
                             <CheckboxIcon
                                 checked={c01}
-                                onChange={optionHandleChange}
+                                onChange={handleChange}
                                 name="c01"
                             />}
                         label="VISA"
@@ -76,7 +93,7 @@ function FilterForm(props) {
                         control={
                             <CheckboxIcon
                                 checked={c02}
-                                onChange={optionHandleChange}
+                                onChange={handleChange}
                                 name="c02"
                             />}
                         label="マスター"
@@ -85,7 +102,7 @@ function FilterForm(props) {
                         control={
                             <CheckboxIcon
                                 checked={c04}
-                                onChange={optionHandleChange}
+                                onChange={handleChange}
                                 name="c04"
                             />}
                         label="アメックス"
@@ -94,7 +111,7 @@ function FilterForm(props) {
                         control={
                             <CheckboxIcon
                                 checked={c06}
-                                onChange={optionHandleChange}
+                                onChange={handleChange}
                                 name="c06"
                             />}
                         label="DINERS"
@@ -103,7 +120,7 @@ function FilterForm(props) {
                         control={
                             <CheckboxIcon
                                 checked={c07}
-                                onChange={optionHandleChange}
+                                onChange={handleChange}
                                 name="c07"
                             />}
                         label="JCB"
@@ -112,7 +129,7 @@ function FilterForm(props) {
                         control={
                             <CheckboxIcon
                                 checked={c11}
-                                onChange={optionHandleChange}
+                                onChange={handleChange}
                                 name="c11"
                             />}
                         label="銀聯"
@@ -121,7 +138,7 @@ function FilterForm(props) {
                         control={
                             <CheckboxIcon
                                 checked={c12}
-                                onChange={optionHandleChange}
+                                onChange={handleChange}
                                 name="c12"
                             />}
                         label="Discover"
@@ -136,7 +153,7 @@ function FilterForm(props) {
                         control={
                             <CheckboxIcon
                                 checked={child}
-                                onChange={optionHandleChange}
+                                onChange={handleChange}
                                 name="child"
                             />}
                         label="お子様連れOK"
@@ -145,7 +162,7 @@ function FilterForm(props) {
                         control={
                             <CheckboxIcon
                                 checked={card}
-                                onChange={optionHandleChange}
+                                onChange={handleChange}
                                 name="card"
                             />}
                         label="カード可"
@@ -154,7 +171,7 @@ function FilterForm(props) {
                         control={
                             <CheckboxIcon
                                 checked={parking}
-                                onChange={optionHandleChange}
+                                onChange={handleChange}
                                 name="parking"
                             />}
                         label="駐車場あり"
@@ -163,7 +180,7 @@ function FilterForm(props) {
                         control={
                             <CheckboxIcon
                                 checked={wifi}
-                                onChange={optionHandleChange}
+                                onChange={handleChange}
                                 name="wifi"
                             />}
                         label="Wifiあり"
@@ -172,7 +189,7 @@ function FilterForm(props) {
                         control={
                             <CheckboxIcon
                                 checked={private_room}
-                                onChange={optionHandleChange}
+                                onChange={handleChange}
                                 name="private_room"
                             />}
                         label="個室あり"
@@ -181,7 +198,7 @@ function FilterForm(props) {
                         control={
                             <CheckboxIcon
                                 checked={tatami}
-                                onChange={optionHandleChange}
+                                onChange={handleChange}
                                 name="tatami"
                             />}
                         label="座敷あり"
@@ -190,7 +207,7 @@ function FilterForm(props) {
                         control={
                             <CheckboxIcon
                                 checked={non_smoking}
-                                onChange={optionHandleChange}
+                                onChange={handleChange}
                                 name="non_smoking"
                             />}
                         label="禁煙席あり"
@@ -199,7 +216,7 @@ function FilterForm(props) {
                         control={
                             <CheckboxIcon
                                 checked={barrier_free}
-                                onChange={optionHandleChange}
+                                onChange={handleChange}
                                 name="barrier_free"
                             />}
                         label="バリアフリー"
@@ -208,7 +225,7 @@ function FilterForm(props) {
                         control={
                             <CheckboxIcon
                                 checked={lunch}
-                                onChange={optionHandleChange}
+                                onChange={handleChange}
                                 name="lunch"
                             />}
                         label="ランチあり"
@@ -217,7 +234,7 @@ function FilterForm(props) {
                         control={
                             <CheckboxIcon
                                 checked={english}
-                                onChange={optionHandleChange}
+                                onChange={handleChange}
                                 name="english"
                             />}
                         label="英語メニューあり"
@@ -226,7 +243,7 @@ function FilterForm(props) {
                         control={
                             <CheckboxIcon
                                 checked={pet}
-                                onChange={optionHandleChange}
+                                onChange={handleChange}
                                 name="pet"
                             />}
                         label="ペット可"
@@ -235,11 +252,31 @@ function FilterForm(props) {
                         control={
                             <CheckboxIcon
                                 checked={private_room}
-                                onChange={optionHandleChange}
+                                onChange={handleChange}
                                 name="private_room"
                             />}
                         label="個室あり"
                     />
+                </FormGroup>
+            </FormControl>
+            <hr/>
+            <FormControl>
+                <FormLabel>検索範囲</FormLabel>
+                <FormGroup>
+                    <Select
+                        open={open}
+                        onClose={handleClose}
+                        onOpen={handleOpen}
+                        onChange={handleChange}
+                        defaultValue={3}
+                        name={"range"}
+                    >
+                        <MenuItem checked={1} value={1}>300m</MenuItem>
+                        <MenuItem checked={2} value={2}>500m</MenuItem>
+                        <MenuItem checked={3} value={3}>1km</MenuItem>
+                        <MenuItem checked={4} value={4}>2km</MenuItem>
+                        <MenuItem checked={5} value={5}>3km</MenuItem>
+                    </Select>
                 </FormGroup>
             </FormControl>
             <Button variant="contained" color="primary" onClick={() => { createQuery(options) }}>
