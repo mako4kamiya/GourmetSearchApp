@@ -10,44 +10,23 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 
 import "../css/filter.css";
-const optionData = {
-    c01: false,
-    c02: false,
-    c04: false,
-    c06: false,
-    c07: false,
-    c11: false,
-    c12: false,
-    child: false,
-    card: false,
-    parking: false,
-    wifi: false,
-    private_room: false,
-    tatami: false,
-    non_smoking: false,
-    barrier_free: false,
-    lunch: false,
-    english: false,
-    pet: false,
-    range:""
-};
-
 
 function FilterForm(props) {
     const history = useHistory();
-    const [options, setOptions] = useState(null);
+    const [options, setOptions] = useState(props.options);
     const [open, setOpen] = useState(false);
-    console.log(options);
     const {c01, c02, c04, c06, c07, c11, c12,
-            child, card, parking, wifi, private_room,
-            tatami, non_smoking, barrier_free, lunch, english, pet, range } = "" ;
-
+        child, card, parking, wifi, private_room,
+        tatami, non_smoking, barrier_free, lunch, english, pet, range } = "" ;
+    
+    console.log(options);
+        
     const handleChange = (event) => {
         console.log(event)
         if(event.target.name == "range"){
-            setOptions({ ...options, [event.target.name]: event.target.value });
+            props.setOptions({ ...options, [event.target.name]: event.target.value });
         }else {
-            setOptions({ ...options, [event.target.name]: event.target.checked });
+            props.setOptions({ ...options, [event.target.name]: event.target.checked });
         }
     };
 
@@ -67,88 +46,16 @@ function FilterForm(props) {
             }
         })
         console.log(newQuery);
-        props.setOption(newQuery);
+        props.setQuery(newQuery);
         history.push("/");
     }
-
-    useEffect(() => {
-        if (!options){
-            setOptions(optionData);
-            console.log("optionsセット");
-        }
-    },[]);
-
+    
+    useEffect(()=>{
+        setOptions(props.options)
+    },[props])
+    
     return (
         <div id="FilterForm">
-            <FormControl>
-                <FormLabel>お支払い方法</FormLabel>
-                <FormGroup>
-                    <FormControlLabel
-                        control={
-                            <CheckboxIcon
-                                checked={c01}
-                                onChange={handleChange}
-                                name="c01"
-                            />}
-                        label="VISA"
-                    />
-                    <FormControlLabel
-                        control={
-                            <CheckboxIcon
-                                checked={c02}
-                                onChange={handleChange}
-                                name="c02"
-                            />}
-                        label="マスター"
-                    />
-                    <FormControlLabel
-                        control={
-                            <CheckboxIcon
-                                checked={c04}
-                                onChange={handleChange}
-                                name="c04"
-                            />}
-                        label="アメックス"
-                    />
-                    <FormControlLabel
-                        control={
-                            <CheckboxIcon
-                                checked={c06}
-                                onChange={handleChange}
-                                name="c06"
-                            />}
-                        label="DINERS"
-                    />
-                    <FormControlLabel
-                        control={
-                            <CheckboxIcon
-                                checked={c07}
-                                onChange={handleChange}
-                                name="c07"
-                            />}
-                        label="JCB"
-                    />
-                    <FormControlLabel
-                        control={
-                            <CheckboxIcon
-                                checked={c11}
-                                onChange={handleChange}
-                                name="c11"
-                            />}
-                        label="銀聯"
-                    />
-                    <FormControlLabel
-                        control={
-                            <CheckboxIcon
-                                checked={c12}
-                                onChange={handleChange}
-                                name="c12"
-                            />}
-                        label="Discover"
-                    />
-                </FormGroup>
-            </FormControl>
-            <hr/>
             <FormControl>
                 <FormLabel>検索オプション</FormLabel>
                 <FormGroup>
@@ -259,6 +166,75 @@ function FilterForm(props) {
                                 name="private_room"
                             />}
                         label="個室あり"
+                    />
+                </FormGroup>
+            </FormControl>
+            <hr/>
+            <FormControl>
+                <FormLabel>お支払い方法</FormLabel>
+                <FormGroup>
+                    <FormControlLabel
+                        control={
+                            <CheckboxIcon
+                                checked={c01}
+                                onChange={handleChange}
+                                name="c01"
+                            />}
+                        label="VISA"
+                    />
+                    <FormControlLabel
+                        control={
+                            <CheckboxIcon
+                                checked={c02}
+                                onChange={handleChange}
+                                name="c02"
+                            />}
+                        label="マスター"
+                    />
+                    <FormControlLabel
+                        control={
+                            <CheckboxIcon
+                                checked={c04}
+                                onChange={handleChange}
+                                name="c04"
+                            />}
+                        label="アメックス"
+                    />
+                    <FormControlLabel
+                        control={
+                            <CheckboxIcon
+                                checked={c06}
+                                onChange={handleChange}
+                                name="c06"
+                            />}
+                        label="DINERS"
+                    />
+                    <FormControlLabel
+                        control={
+                            <CheckboxIcon
+                                checked={c07}
+                                onChange={handleChange}
+                                name="c07"
+                            />}
+                        label="JCB"
+                    />
+                    <FormControlLabel
+                        control={
+                            <CheckboxIcon
+                                checked={c11}
+                                onChange={handleChange}
+                                name="c11"
+                            />}
+                        label="銀聯"
+                    />
+                    <FormControlLabel
+                        control={
+                            <CheckboxIcon
+                                checked={c12}
+                                onChange={handleChange}
+                                name="c12"
+                            />}
+                        label="Discover"
                     />
                 </FormGroup>
             </FormControl>

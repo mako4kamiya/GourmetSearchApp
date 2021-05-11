@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import FilterForm from "../components/FilterForm";
 
@@ -13,7 +14,7 @@ function Filter(props) {
                 headerLeft= {headerLeft}
                 headerLeftPath={headerLeftPath}
             />
-            <FilterForm setOption={props.setOption}/>
+            <FilterForm setQuery={props.setQuery} setOptions={props.setOptions} options={props.options}/>
         </div>
     );
 }

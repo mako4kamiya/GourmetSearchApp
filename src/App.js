@@ -8,12 +8,12 @@ import Home from "./pages/Home";
 const KEY = process.env.REACT_APP_HOTPEPPER_API_KEY
 // const REQUEST_URL = `https://cors-for-gourmet-search-app.herokuapp.com/http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=${KEY}&format=json&type=credit_card&range=5`
 const REQUEST_URL = `https://cors-for-gourmet-search-app.herokuapp.com/http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=${KEY}&format=json&type=credit_card`
-
-function App() {
+function App(props) {
     const [lng, setLng] = useState("");
     const [lat, setLat] = useState("");
     const [baseUrl, setBaseUrl]  = useState("");
-    const [options, setOption] = useState("");
+    const [query, setQuery] = useState(null);
+    const [options, setOptions] = useState(props.options);
     const [shops, setShops] = useState([]);
 
     function getLocation() {
@@ -39,6 +39,7 @@ function App() {
             let res = await axios.get(url);
             console.log(url);
             setShops(res.data.results.shop);
+            return setQuery("")
         } catch(err) {
             console.log(err);
         }
@@ -49,14 +50,15 @@ function App() {
     },[]);
     
     useEffect(()=>{
-        if (options) {
-            getShopInfo(baseUrl + options);
-            console.log("1");
-        } else if (baseUrl) {
+        console.log(query);
+        if (query === null) {
             getShopInfo(baseUrl);
+            console.log("1");
+        } else if (query) {
+            getShopInfo(baseUrl + query);
             console.log("2");
         }
-    },[baseUrl, options])
+    },[query, baseUrl])
 
     console.log(shops);
     return (
@@ -65,7 +67,7 @@ function App() {
                 <List shops={shops}/>
             </Route>
             <Route path="/filter">
-                <Filter shops={shops} setOption={setOption}/>
+                <Filter shops={shops} setQuery={setQuery} setOptions={setOptions} options={options}/>
             </Route>
             <Route path="/">
                 <Home lng={lng} lat={lat} shops={shops}/>
