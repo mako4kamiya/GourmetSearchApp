@@ -1,19 +1,18 @@
 import { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
 import axios from "axios";
-import List from "../pages/List";
-import Filter from "../pages/Filter";
-import Home from "../pages/Home";
+import List from "./pages/List";
+import Filter from "./pages/Filter";
+import Home from "./pages/Home";
 
 const KEY = process.env.REACT_APP_HOTPEPPER_API_KEY
-// const REQUEST_URL = `https://cors-for-gourmet-search-app.herokuapp.com/http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=${KEY}&format=json&type=credit_card&range=5`
-const REQUEST_URL = `https://cors-for-gourmet-search-app.herokuapp.com/http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=${KEY}&format=json&type=credit_card`
+const REQUEST_URL = `https://cors-for-gourmet-search-app.herokuapp.com/http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=${KEY}&format=json&type=credit_card&range=5`
+// const REQUEST_URL = `https://cors-for-gourmet-search-app.herokuapp.com/http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=${KEY}&format=json&type=credit_card`
 
 function App() {
     const [lng, setLng] = useState("");
     const [lat, setLat] = useState("");
     const [baseUrl, setBaseUrl]  = useState("");
-    const [query, setQuery] = useState(false);
     const [options, setOption] = useState("");
     const [shops, setShops] = useState([]);
 
@@ -35,12 +34,11 @@ function App() {
             console.log(err);
         }
     }
-    async function getShopInfo(query,options) {
+    async function getShopInfo(url) {
         try {
-            let res = await axios.get(query + options);
-            console.log(query + options);
+            let res = await axios.get(url);
+            console.log(url);
             setShops(res.data.results.shop);
-            console.log(shops);
         } catch(err) {
             console.log(err);
         }
@@ -51,13 +49,16 @@ function App() {
     },[]);
 
     useEffect(()=>{
-        if (query) {
-            getShopInfo(query, options);
-        } else {
-            getShopInfo(baseUrl, options);
+        if (options) {
+            getShopInfo(baseUrl + options);
+            console.log("1");
+        } else if (baseUrl) {
+            getShopInfo(baseUrl);
+            console.log("2");
         }
-    },[query, baseUrl, options])
+    },[baseUrl, options])
 
+    console.log(shops);
     return (
         <Switch>
             <Route path="/list">
