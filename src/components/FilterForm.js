@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useHistory } from 'react-router-dom';
 import FormLabel from '@material-ui/core/FormLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
@@ -33,6 +34,7 @@ const optionData = {
 
 
 function FilterForm(props) {
+    const history = useHistory();
     const [options, setOptions] = useState(null);
     const [open, setOpen] = useState(false);
     console.log(options);
@@ -66,6 +68,7 @@ function FilterForm(props) {
         })
         console.log(newQuery);
         props.setOption(newQuery);
+        history.push("/");
     }
 
     useEffect(() => {
