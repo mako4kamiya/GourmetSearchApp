@@ -55,7 +55,8 @@ https://github.com/mako4kamiya/gourmet-search-app
     ・現在地と検索ヒットした店舗のピン（未）
     ・ユーザーがマップを移動させることにより再検索（未） 
 </details>
-その他、実装予定機能やバグについては「こちら](https://github.com/mako4kamiya/gourmet-search-app/projects/2#column-14051638)
+
+その他、実装予定機能やバグについては[こちら](https://github.com/mako4kamiya/gourmet-search-app/projects/2#column-14051638)
 
 ## 対象OS・ブラウザ
 ### MacOS
